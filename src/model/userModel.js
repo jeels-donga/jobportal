@@ -18,7 +18,7 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
   },
   phone: {
     type: String,
@@ -26,7 +26,7 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: false,
   },
   otp: {
     type: String,
@@ -95,6 +95,6 @@ const UserSchema = new Schema({
   },
 });
 
-const User = mongoose.model("user", UserSchema);
+const User = mongoose.models.users || mongoose.model("auth", UserSchema);
 
 export default User;
